@@ -8,12 +8,12 @@ using namespace std;
 vector< char > foo(list< Human >& people)
 {
   vector< char > ret_v(people.size());
-    
-  for_each(people.begin(), people.end(), [](Human& h) { h.birthday(); });
+  auto h = [](Human& hum) { hum.birthday(); };
+  for_each(people.begin(), people.end(), h);
 
-  transform(people.rbegin(), people.rend(), ret_v.begin() [](Human& h)
+  transform(people.rbegin(), people.rend(), ret_v.begin(), [](Human& h)
   {
-    if (h.isMonster())
+    if (hum.isMonster())
       return 'N'; 
     else
       return 'Y';
